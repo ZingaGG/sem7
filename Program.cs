@@ -132,10 +132,10 @@ double[] AvgInAColumn(int[,] matrix)
 
     for (int i = 0; i < matrix.GetLength(1); i++)
     {
-        int temp = 0;
+        double temp = 0;
         for (int j = 0; j < matrix.GetLength(0); j++)
         {
-            temp += matrix[i,j];
+            temp += matrix[j,i];
             Result[i] = (temp / matrix.GetLength(0));
         }
     }
