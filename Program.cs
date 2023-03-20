@@ -5,7 +5,7 @@
     return result;
 }
 
-int[,] CreateDoubleArray(int m, int n)
+int[,] CreateRandomDoubleArray(int m, int n)
 {
     int[,] array = new int[m,n];
     for (int i = 0; i < m; i++)
@@ -31,7 +31,30 @@ void PrintDoubleArray(int[,] array)
     }
 }
 
+int[,] CreateFormulaMatrix(int m, int n)
+{
+    int[,] array = new int[m,n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            array[i,j] = i+j;
+        }
+    }
 
+    return array;
+}
+
+// Task 1 Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
+/*
 int[,] RandomArray = CreateDoubleArray(TakeDigit("Input m = "), TakeDigit("Input n = "));
 
 PrintDoubleArray(RandomArray);
+*/
+
+// Task 2  Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле: Aₘₙ = m+n. Выведите полученный массив на экран.
+/* 
+int[,] FormulaArray = CreateFormulaMatrix(TakeDigit("Input m = "), TakeDigit("Input n = "));
+
+PrintDoubleArray(FormulaArray);
+*/
