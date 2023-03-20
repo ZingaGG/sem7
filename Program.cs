@@ -21,6 +21,7 @@ int[,] CreateRandomDoubleArray(int m, int n)
 
 void PrintDoubleArray(int[,] array)
 {
+    System.Console.WriteLine();
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
@@ -62,6 +63,27 @@ int[,] MatrixOddSquare(int[,] array)
     return array;
 }
 
+int MatrixMainDiagonalSum(int[,] array)
+{
+
+    int Result = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if(i == j)
+            {
+                Result += array[i,j];
+            }
+        }
+    }
+
+    return Result;
+}
+
+
+
 // Task 1 Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
 /*
 int[,] RandomArray = CreateDoubleArray(TakeDigit("Input m = "), TakeDigit("Input n = "));
@@ -69,13 +91,19 @@ int[,] RandomArray = CreateDoubleArray(TakeDigit("Input m = "), TakeDigit("Input
 PrintDoubleArray(RandomArray);
 */
 
+
+
 // Task 2  Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле: Aₘₙ = m+n. Выведите полученный массив на экран.
 /* 
 int[,] FormulaArray = CreateFormulaMatrix(TakeDigit("Input m = "), TakeDigit("Input n = "));
 
 PrintDoubleArray(FormulaArray);
 */
+
+
+
 // Task 3  Задайте двумерный массив. Найдите элементы, у которых оба индекса нечётные, и замените эти элементы на их квадраты.
+/*
 int[,] RandomArray = CreateRandomDoubleArray(TakeDigit("Input m = "), TakeDigit("Input n = "));
 
 PrintDoubleArray(RandomArray);
@@ -83,3 +111,16 @@ PrintDoubleArray(RandomArray);
 RandomArray = MatrixOddSquare(RandomArray);
 
 PrintDoubleArray(RandomArray);
+*/
+
+// Task 4 Задайте двумерный массив. Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
+/*
+int[,] RandomArray = CreateRandomDoubleArray(TakeDigit("Input m = "), TakeDigit("Input n = "));
+
+PrintDoubleArray(RandomArray);
+
+int Sum = MatrixMainDiagonalSum(RandomArray);
+
+System.Console.WriteLine("Sum = " + Sum);
+*/
+
