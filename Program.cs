@@ -29,6 +29,7 @@ void PrintDoubleArray(int[,] array)
         }
         System.Console.WriteLine();
     }
+    System.Console.WriteLine();
 }
 
 int[,] CreateFormulaMatrix(int m, int n)
@@ -39,6 +40,22 @@ int[,] CreateFormulaMatrix(int m, int n)
         for (int j = 0; j < n; j++)
         {
             array[i,j] = i+j;
+        }
+    }
+
+    return array;
+}
+
+int[,] MatrixOddSquare(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (i % 2 != 0 && j % 2 != 0)
+            {
+                array[i,j] *= array[i,j];
+            }
         }
     }
 
@@ -58,3 +75,11 @@ int[,] FormulaArray = CreateFormulaMatrix(TakeDigit("Input m = "), TakeDigit("In
 
 PrintDoubleArray(FormulaArray);
 */
+// Task 3  Задайте двумерный массив. Найдите элементы, у которых оба индекса нечётные, и замените эти элементы на их квадраты.
+int[,] RandomArray = CreateRandomDoubleArray(TakeDigit("Input m = "), TakeDigit("Input n = "));
+
+PrintDoubleArray(RandomArray);
+
+RandomArray = MatrixOddSquare(RandomArray);
+
+PrintDoubleArray(RandomArray);
