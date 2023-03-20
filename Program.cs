@@ -126,6 +126,28 @@ int FindElementInMatrix(int row, int column, int[,] matrix)
 
 }
 
+double[] AvgInAColumn(int[,] matrix)
+{
+    double[] Result = new double[matrix.GetLength(1)];
+
+    for (int i = 0; i < matrix.GetLength(1); i++)
+    {
+        int temp = 0;
+        for (int j = 0; j < matrix.GetLength(0); j++)
+        {
+            temp += matrix[i,j];
+            Result[i] = (temp / matrix.GetLength(0));
+        }
+    }
+
+    return Result;
+}
+
+void PrintArray(double[] array)
+{
+    System.Console.WriteLine("Your array = [{0}]", string.Join(", ", array));
+}
+
 
 // Task 1 Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
 /*
@@ -182,3 +204,13 @@ PrintDoubleArray(RandomMatrix);
 
 System.Console.WriteLine("Result = " + FindElementInMatrix(TakeDigit("Input row = "), TakeDigit("Input column = "), RandomMatrix));
 */
+
+// Task 7 Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+int[,] RandomMatrix = CreateRandomDoubleArray(TakeDigit("Input rows number = "), TakeDigit("Input columns number = "));
+
+PrintDoubleArray(RandomMatrix);
+
+double[] Result = AvgInAColumn(RandomMatrix);
+
+PrintArray(Result);
