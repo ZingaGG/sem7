@@ -33,6 +33,20 @@ void PrintDoubleArray(int[,] array)
     System.Console.WriteLine();
 }
 
+void PrintDoubleMatrix(double[,] array)
+{
+    System.Console.WriteLine();
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+           System.Console.Write(array[i,j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+    System.Console.WriteLine();
+}
+
 int[,] CreateFormulaMatrix(int m, int n)
 {
     int[,] array = new int[m,n];
@@ -82,6 +96,35 @@ int MatrixMainDiagonalSum(int[,] array)
     return Result;
 }
 
+double[,] MatrixRandomDouble(int m, int n)
+{
+    var rand = new Random();
+    double[,] array = new double[m,n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            array[i,j] = rand.NextDouble() * 10;
+        }
+    }
+
+    return array;
+}
+
+int FindElementInMatrix(int row, int column, int[,] matrix)
+{
+    if((row - 1 > matrix.GetLength(0)) || (column - 1 > matrix.GetLength(1)))
+    {
+        System.Console.WriteLine("Out of Range");
+        return 0;
+    }
+    else
+    {
+        int Result = matrix[row-1,column-1];
+        return Result;
+    }
+
+}
 
 
 // Task 1 Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
@@ -124,3 +167,18 @@ int Sum = MatrixMainDiagonalSum(RandomArray);
 System.Console.WriteLine("Sum = " + Sum);
 */
 
+// Task 5 Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+/*
+double[,] RandomDoubleMatrix = MatrixRandomDouble(TakeDigit("Input m = "), TakeDigit("Input n = "));
+
+PrintDoubleMatrix(RandomDoubleMatrix);
+*/
+
+// Task 6 Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+/*
+int[,] RandomMatrix = CreateRandomDoubleArray(TakeDigit("Input rows number = "), TakeDigit("Input columns number = "));
+
+PrintDoubleArray(RandomMatrix);
+
+System.Console.WriteLine("Result = " + FindElementInMatrix(TakeDigit("Input row = "), TakeDigit("Input column = "), RandomMatrix));
+*/
