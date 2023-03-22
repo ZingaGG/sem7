@@ -111,19 +111,19 @@ double[,] MatrixRandomDouble(int m, int n)
     return array;
 }
 
-int FindElementInMatrix(int row, int column, int[,] matrix)
+int FindElementInMatrix(int row, int col, int[,] matrix)
 {
-    if((row - 1 > matrix.GetLength(0)) || (column - 1 > matrix.GetLength(1)))
-    {
-        System.Console.WriteLine("Out of Range");
-        return 0;
-    }
-    else
-    {
-        int Result = matrix[row-1,column-1];
-        return Result;
-    }
-
+    if (row >= 0 && row < matrix.GetLength(0) && col >= 0 && col < matrix.GetLength(1))
+        {
+            int value = matrix[row, col];
+            Console.WriteLine($"The value at position [{row}, {col}] is {value}.");
+            return value;
+        }
+        else
+        {
+            Console.WriteLine($"The position [{row}, {col}] does not exist in the array.");
+            return 0;
+        }
 }
 
 double[] AvgInAColumn(int[,] matrix)
@@ -197,16 +197,16 @@ PrintDoubleMatrix(RandomDoubleMatrix);
 */
 
 // Task 6 Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
-/*
+
 int[,] RandomMatrix = CreateRandomDoubleArray(TakeDigit("Input rows number = "), TakeDigit("Input columns number = "));
 
 PrintDoubleArray(RandomMatrix);
 
 System.Console.WriteLine("Result = " + FindElementInMatrix(TakeDigit("Input row = "), TakeDigit("Input column = "), RandomMatrix));
-*/
+
 
 // Task 7 Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-
+/*
 int[,] RandomMatrix = CreateRandomDoubleArray(TakeDigit("Input rows number = "), TakeDigit("Input columns number = "));
 
 PrintDoubleArray(RandomMatrix);
@@ -214,3 +214,4 @@ PrintDoubleArray(RandomMatrix);
 double[] Result = AvgInAColumn(RandomMatrix);
 
 PrintArray(Result);
+*/
